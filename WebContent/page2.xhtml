@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+
+</h:head>
+<h:body>
+	<h:form>
+
+        <p:spacer height="50px" />
+    	
+    	  <p:dataTable  id="dt2"  var="c" value="#{pageOneBean.arrayListChildSelectedForDetail}"  
+    	  
+    	  
+    	    allowUnsorting="true" sortMode="single"         
+    	    
+    	     >
+    	    
+    	    
+    	    
+    	   	 <f:facet name="header">
+         CHILD
+        </f:facet>
+    	    
+    	    
+    	    
+    	 
+    	    
+    	    
+            <p:column      sortBy="#{c.id}"        headerText="Id">
+                <h:outputText value="#{c.id}" />
+            </p:column>
+
+
+    <p:column headerText="Sender">
+                <h:outputText value="#{c.sender}" />
+            </p:column>
+
+
+            <p:column headerText="Receiver">
+                <h:outputText value="#{c.receiver}" />
+            </p:column>
+
+        
+
+            <p:column headerText="Total Amount">
+                <h:outputText value="#{c.totalAmount}" />
+            </p:column>
+            
+            
+            
+            
+            
+            
+               <p:column headerText="Paid Amount">
+               
+               
+                 <h:outputText value="#{c.paidAmount}" />
+          
+            </p:column>
+          
+            
+            
+            
+            
+
+            
+        </p:dataTable> 
+    	
+    	<br/>
+    	
+    	<p:spacer height="10px"></p:spacer>
+    	<br/>
+    	<div style="text-align: center">
+    	<p:commandButton    value="Back"     action="#{pageOneBean.backToParent}"   />
+</div>
+	</h:form>
+</h:body>
+</html>

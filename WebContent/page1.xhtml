@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+
+</h:head>
+<h:body>
+	<h:form>
+
+    	<br/>
+    	<p:spacer height="50px" />
+    	
+    	  <p:dataTable  id="dt1"  var="p" value="#{pageOneBean.firstPageParentArrayList}"  
+    	  
+    	  
+    	    allowUnsorting="true" sortMode="single"    selectionMode="single"      
+    	    
+    	    
+    	    
+    	    
+    	     selection="#{pageOneBean.selectedParent}"
+    	     
+    	     
+    	     rowKey="#{p.id}"    
+    	    
+    	    
+    	    
+   >
+    	
+    	
+    	
+    	
+    	
+    	
+    	 <f:facet name="header">
+           PARENT
+        </f:facet>
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	    
+    	    
+    	    
+    	     <p:ajax event="rowSelect" listener="#{pageOneBean.parentSelectedListener}"/>
+    	    
+    	    
+    	    
+    	    
+    	 
+    	    
+    	    
+            <p:column      sortBy="#{p.id}"        headerText="Id">
+                <h:outputText value="#{p.id}" />
+            </p:column>
+
+
+    <p:column headerText="Sender">
+                <h:outputText value="#{p.sender}" />
+            </p:column>
+
+
+            <p:column headerText="Receiver">
+                <h:outputText value="#{p.receiver}" />
+            </p:column>
+
+        
+
+            <p:column headerText="Total Amount">
+                <h:outputText value="#{p.totalAmount}" />
+            </p:column>
+            
+            
+            
+            
+            
+            
+               <p:column headerText="Total Paid Amount">
+               
+               
+               
+               <h:commandButton    update="dt1"     value="#{p.totalPaidAmount}"  
+               
+          action = "#{pageOneBean.parentOnClickForDetail}"
+   
+   
+               
+                >
+                
+                
+                <f:setPropertyActionListener value="#{p}"
+                                                 target="#{pageOneBean.selectedParent}"/>
+                
+                
+                </h:commandButton> 
+                
+                
+                
+                
+            
+                
+          
+            </p:column>
+          
+            
+            
+            
+            
+             <f:facet name="footer">
+            <span class="p-text-bold">
+             <p:commandButton value="1"    update = "dt1" actionListener="#{pageOneBean.page1ActionListener}"     />
+             <p:commandButton value="2"    update="dt1"  actionListener="#{pageOneBean.page2ActionListener}"   /> 
+             <p:commandButton value="3"   update="dt1"           actionListener="#{pageOneBean.page3ActionListener}"                     /> 
+             <p:commandButton value="4"            update="dt1"           actionListener="#{pageOneBean.page4ActionListener}"            /> 
+                </span>
+        </f:facet>
+            
+        </p:dataTable> 
+    	
+	
+	</h:form>
+</h:body>
+</html>
